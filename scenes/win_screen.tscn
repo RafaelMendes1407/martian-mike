@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://tsespgs0driw"]
+
+[ext_resource type="Script" path="res://Scripts/WinScreen.cs" id="1_faclj"]
+[ext_resource type="FontFile" uid="uid://c0to57da87mcl" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_srtro"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hp7c"]
+font = ExtResource("1_srtro")
+font_size = 38
+outline_size = 13
+outline_color = Color(0.254902, 0.509804, 0.368627, 0.784314)
+
+[sub_resource type="Theme" id="Theme_au2sq"]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_faclj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.270588, 0.270588, 0.270588, 0.505882)
+
+[node name="Win" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You win!"
+label_settings = SubResource("LabelSettings_0hp7c")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = 42.5
+offset_right = 45.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_au2sq")
+theme_override_fonts/font = ExtResource("1_srtro")
+theme_override_font_sizes/font_size = 18
+text = "Ok..."

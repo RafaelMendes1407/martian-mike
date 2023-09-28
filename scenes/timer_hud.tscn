@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6lpiio8s65t1"]
+
+[ext_resource type="FontFile" uid="uid://c0to57da87mcl" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_5n52j"]
+[ext_resource type="Script" path="res://Scripts/TimerHud.cs" id="1_35kod"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_22vvw"]
+font = ExtResource("1_5n52j")
+font_size = 19
+outline_size = 5
+outline_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="Animation" id="Animation_rhm70"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimerLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1g4x5"]
+resource_name = "time_over"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimerLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.101961, 0.101961, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8nti"]
+_data = {
+"RESET": SubResource("Animation_rhm70"),
+"time_over": SubResource("Animation_1g4x5")
+}
+
+[node name="TimerHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_35kod")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "TIME: 999"
+label_settings = SubResource("LabelSettings_22vvw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "time_over"
+libraries = {
+"": SubResource("AnimationLibrary_h8nti")
+}

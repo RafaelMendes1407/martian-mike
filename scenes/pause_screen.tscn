@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3m7dcehgq5cd"]
+
+[ext_resource type="Script" path="res://Scripts/PauseScreen.cs" id="1_dgy3t"]
+[ext_resource type="FontFile" uid="uid://c0to57da87mcl" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_4h17m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36ci6"]
+font = ExtResource("2_4h17m")
+font_size = 30
+outline_size = 3
+outline_color = Color(0.192157, 0.560784, 0.262745, 1)
+
+[node name="PauseScreen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dgy3t")
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0.835294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.592157)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_36ci6")

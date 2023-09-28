@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6r33fpoq8uu"]
+
+[ext_resource type="Script" path="res://Scripts/DeadZone.cs" id="1_nnp13"]
+
+[node name="DeadZone" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_nnp13")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://yyuallduq7bc"]
+
+[ext_resource type="Script" path="res://Scripts/StartScreen.cs" id="1_aldy0"]
+[ext_resource type="FontFile" uid="uid://c0to57da87mcl" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_74skb"]
+[ext_resource type="PackedScene" uid="uid://cme04ae1lq785" path="res://scenes/bg.tscn" id="2_n0tv0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2ly1"]
+font = ExtResource("2_74skb")
+font_size = 43
+outline_size = 18
+outline_color = Color(0.368627, 1, 0, 0.662745)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="StartScreens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_aldy0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -78.0
+offset_right = 58.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_f2ly1")
+
+[node name="Container" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 28.0
+offset_right = 53.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Container"]
+layout_mode = 2
+text = "START GAME"
+
+[node name="QuitButton" type="Button" parent="Container"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="BG" parent="." instance=ExtResource("2_n0tv0")]
